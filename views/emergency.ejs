@@ -1,0 +1,67 @@
+<%- include("partials/header") %>
+    <div class="container">
+        <div class="alert alert-primary" role="alert" style="text-align: center; font-size: 18px; font-weight: 600;">
+            Just fill-up the form so that we can reach you as soon as possible and can help you out by just turning on your mind🌱
+          </div>
+    </div>
+
+<form class="ui main text container form segment" action="/emergency" method="POST">
+    <h3 class="ui dividing header"> Details</h3>
+    <div class="field">
+        <label>Enter your name</label>        
+            <div class="field">
+                <input type="text" name="Yname" placeholder="Please put Your Name">
+            </div>            
+    </div>
+
+    <div class="field">
+        <label>Name of Sufferer</label>        
+            <div class="field">
+                <input type="text" name="Sname" placeholder="Please put the name of Sufferer ">
+            </div>            
+    </div>
+
+    <div class="field">
+        <label for="cars">Your relationship with Sufferer</label>
+            <select id="rln" name="rln">
+                <option value="Self">Self</option>
+                <option value="Family">Family Member</option>
+                <option value="Friend">Friend</option>
+                <option value="Stranger">Other</option>
+            </select>
+    </div>
+
+    <div class="field">
+        <label>Address</label>
+        <div class="fields">
+            <div class="twelve wide field">
+                <input type="text" name="add" placeholder="Street Address">
+            </div>
+            <div class="four wide field">
+                <input type="text" name="add2" placeholder="Apt no.#">
+            </div>           
+        </div>
+    </div>
+
+    <div class="field">
+        
+        <div class="field">
+           
+                <label>Your contact number</label>
+                <input type="text" name="Ynumber" placeholder="Your Contact">
+          
+                <label>Contact number of Sufferer</label>
+                <input type="text" name="Snumber" placeholder="Contact of Sufferer">
+
+        </div>
+    </div>
+    <div class="field">
+        <label>Problems facing by the Sufferer</label>
+        <textarea name="problems" placeholder="Brief description of the problems facing by the Sufferer"></textarea>
+    </div>
+    <div><input href="/" type="submit"></div>
+
+
+</form>    
+
+    <%- include("partials/footer") %>

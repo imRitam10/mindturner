@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div#test {
+            border: #000 1px solid;
+            padding: 10px 40px 40px 40px;
+        }
+    </style>
+    <script>
+        var pos = 0, test, test_status, question, choice, choices, chA, chB, chC, correct = 0;
+        var questions = [
+            // ["I do things slowly.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["My future seems hopeless", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["It is hard for me to concentrate on reading?", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["The pleasure and joy has gone out of my life?", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I have difficulty making decisions", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I have lost interest in aspects of life that used to be important to me.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel sad, blue, and unhappy", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I am agitated and keep moving around.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel fatigued.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["It takes great effort for me to do simple things.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel that I am a guilty person who deserves to be punished.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel like a failure.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel lifeless-- more dead than alive.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["My sleep has been disturbed-- too little, too much, or broken sleep.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I spend time thinking about HOW I might kill myself.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel trapped or caught.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["I feel depressed even when good things happen to me.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ],
+            // ["Without trying to diet, I have lost, or gained, weight.", "Not at all", "Just a little", "Somewhat", "ModeratelyQuite a lot", "Very much" ]     
+
+
+            ["What is 10 + 4?", "12", "14", "16", "B"],
+            ["What is 20 - 9?", "7", "13", "11", "C"],
+            ["What is 7 x 3?", "21", "24", "25", "A"],
+            ["What is 8 / 2?", "10", "2", "4", "C"]
+        ];
+        function _(x) {
+            return document.getElementById(x);
+        }
+        function renderQuestion() {
+            test = _("test");
+            if (pos >= questions.length) {
+                test.innerHTML = "<h2>You got " + correct + " of " + questions.length + " questions correct</h2>";
+                _("test_status").innerHTML = "Test Completed";
+                pos = 0;
+                correct = 0;
+                return false;
+            }
+            _("test_status").innerHTML = "Question " + (pos + 1) + " of " + questions.length;
+            question = questions[pos][0];
+            chA = questions[pos][1];
+            chB = questions[pos][2];
+            chC = questions[pos][3];
+            test.innerHTML = "<h3>" + question + "</h3>";
+            test.innerHTML += "<input type='radio' name='choices' value='A'> " + chA + "<br>";
+            test.innerHTML += "<input type='radio' name='choices' value='B'> " + chB + "<br>";
+            test.innerHTML += "<input type='radio' name='choices' value='C'> " + chC + "<br><br>";
+            test.innerHTML += "<button onclick='checkAnswer()'>Submit Answer</button>";
+        }
+        function checkAnswer() {
+            choices = document.getElementsByName("choices");
+            for (var i = 0; i < choices.length; i++) {
+                if (choices[i].checked) {
+                    choice = choices[i].value;
+                }
+            }
+            if (choice == questions[pos][4]) {
+                correct++;
+            }
+            pos++;
+            renderQuestion();
+        }
+        window.addEventListener("load", renderQuestion, false);
+    </script>
+</head>
+
+<body>
+    <h2 id="test_status"></h2>
+    <div id="test"></div>
+</body>
+
+</html>

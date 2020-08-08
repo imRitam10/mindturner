@@ -1,0 +1,53 @@
+<%- include("partials/header") %>
+
+<style>
+    .bg {        
+        background-image: url("https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80");
+        background-color: #cccccc;
+        /* height: 500px; */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        padding-bottom: 150px;
+        
+    }
+</style>
+
+<div class="bg">
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1 class="display-2">Welcome To Your PostFeed !! </h1>
+                <p style="font-size: 25px;" >View All The Post From All Over The World</p>
+                <p>
+                  <a class="btn btn-primary btn" href="/index/new">Add New Post</a>
+                </p>
+            </div>
+        </header>
+    
+    
+    
+        <div class="row text-center" >
+            <% index.forEach(function(index){ %>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card">
+                        <img class="card-img-top" src=" <%= index.image %> " alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= index.name %></h5>
+                            <a href="/index/<%=index._id%>" class="btn btn-primary">More Info</a>
+                        </div>
+                    </div>
+    
+                </div>
+    
+            <% }); %>
+        </div>
+    
+    </div>
+    
+
+</div>
+
+<%- include("partials/footer") %>

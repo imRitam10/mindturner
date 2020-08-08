@@ -1,0 +1,45 @@
+#delete {
+    display: inline;
+}
+#nav-bar
+{
+    position: sticky;
+    top:10;
+    z-index: 10;
+    width: auto;
+
+}
+.navbar-brand img
+{
+      /* height: 60px;
+      padding-left: 40px; */
+    width: 150px;
+
+}
+.navbar-nav li
+{
+  padding: 0 10px;
+}
+.navbar-nav li a
+{
+  float: right;
+  text-align: left;
+  font-size: 23px;
+  padding: 0 auto;
+}
+#nav-bar ul li a:hover
+{
+  color: #0cd305;
+}
+.navbar{
+  background: #fff;
+}
+.navbar-toggler
+{
+  border: none!important;
+}
+.nav-link
+{
+  font-weight: 800;
+  font-size: 16px;
+}

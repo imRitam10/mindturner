@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit <%=index.name %></div>
+    <form class="ui form" action="/index/<%= index._id %>?_method=PUT" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="name" value="<%=index.name %>">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="image" value="<%=index.image %>">
+        </div>
+
+        <div class="field">
+            <label>Blog</label>
+            <textarea name="description"><%=index.description %></textarea>
+        </div>
+        <input class="ui violet basic button" type="submit">
+    </form>
+</div>
+
+
+
+<%- include("partials/footer") %>
