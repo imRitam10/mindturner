@@ -352,6 +352,8 @@ app.get("/index/:id/comments/:comment_id/edit",checkCommentOwnership, function(r
 //    console.log("Server has started!!!");
 // });
 
-app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("Mhrd Server Has Started!");
- });
+// app.listen(process.env.PORT, process.env.IP, function(){
+//     console.log("Mhrd Server Has Started!");
+//  });
+
+app.listen(process.env.PORT || 3000);
