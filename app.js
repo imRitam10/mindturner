@@ -348,6 +348,10 @@ app.get("/index/:id/comments/:comment_id/edit",checkCommentOwnership, function(r
  });
 
 
-app.listen(3000, function(){
-   console.log("Server has started!!!");
-});
+// app.listen(3000, function(){
+//    console.log("Server has started!!!");
+// });
+
+app.listen(process.env.PORT, process.env.IP, function(){
+    console.log("Mhrd Server Has Started!");
+ });
