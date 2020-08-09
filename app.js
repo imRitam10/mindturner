@@ -24,7 +24,7 @@ var express          = require("express"),
 //     console.log ('ERROR:', err.message);
 // });
 
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASE);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
