@@ -331,4 +331,6 @@ app.get("/index/:id/comments/:comment_id/edit",checkCommentOwnership, function(r
 
 
  
-app.listen(process.env.PORT || 3000);
+// app.listen(process.env.PORT || 3000);
+
+app.listen(process.env.PORT, process.env.IP);
