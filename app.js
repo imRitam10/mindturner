@@ -17,14 +17,14 @@ var express          = require("express"),
 
 // mongoose.connect("mongodb://localhost/mindturner");
 
-// mongoose.connect('mongodb+srv://ritam:@BitTU2020@cluster0.vohou.mongodb.net/mindturner?retryWrites=true&w=majority',{
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-// }).then(() => {
-//     console.log ('ERROR:', err.message);
-// });
+mongoose.connect('mongodb+srv://ritam:@BitTU2020@cluster0.vohou.mongodb.net/mindturner?retryWrites=true&w=majority',{
+    useNewUrlParser: true,
+    useCreateIndex: true
+}).then(() => {
+    console.log ('ERROR:', err.message);
+});
 
-mongoose.connect(process.env.DATABASE);
+// mongoose.connect(process.env.DATABASE);
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
