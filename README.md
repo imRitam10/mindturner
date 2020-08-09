@@ -1,1 +1,1 @@
-"# mindturner.github.io" 
+http://mind-turner.herokuapp.com/
