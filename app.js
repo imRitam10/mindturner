@@ -11,7 +11,8 @@ var express          = require("express"),
     Index            = require("./models/index"),
     User             = require("./models/user"),
     Comment          = require('./models/comment'),
-    Emergency        = require("./models/emergency");
+    Emergency        = require("./models/emergency"),
+    bcryptjs         = require("bcryptjs");
 
 
 
