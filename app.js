@@ -60,7 +60,7 @@ app.get("/", function (req, res){
     res.render("landing");
 });
 
-app.get("/index", isLoggedIn, function(req, res){
+app.get("/index", function(req, res){
     Index.find({}, function (err, allIndex){
         if (err){
             console.log(err)
