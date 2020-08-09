@@ -29,17 +29,6 @@ mongoose.connect('mongodb+srv://ritam:@BitTU2020@cluster0.vohou.mongodb.net/mind
 // mongoose.connect(process.env.DATABASE);
 
 
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://ritam:@BitTU2020@cluster0.vohou.mongodb.net/mindturner?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -73,7 +62,7 @@ app.get("/", function (req, res){
     res.render("landing");
 });
 
-app.get("/index", function(req, res){
+app.get("/index", isLoggedIn, function(req, res){
     Index.find({}, function (err, allIndex){
         if (err){
             console.log(err)
