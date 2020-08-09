@@ -12,8 +12,7 @@ var express          = require("express"),
     User             = require("./models/user"),
     Comment          = require('./models/comment'),
     Emergency        = require("./models/emergency");
-//    seedDB           = require("./seeds"),
-//   {spawn}          = require('child_process');
+
 
 
 // mongoose.connect("mongodb://localhost/mindturner");
@@ -28,7 +27,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 app.use(flash());
-//seedDB();
+
 
 //PASSPORT CONFIGURATION
 app.use(require("express-session")({
@@ -264,23 +263,6 @@ app.get("/category", function(req, res){
     res.render("category");
 });
 
-//app.get("/self", function (req, res){
-  //  var dataToSend;
-    // spawn new child process to call the python script
-   // const python = spawn('python', ['self.py']);
-    // collect data from script
-    //python.stdout.on('data', function (data) {
-     //console.log('Pipe data from python script ...');
-     //dataToSend = data.toString();
-   // });
-    // in close event we are sure that stream from child process is closed
-//    python.on('close', (code) => {
-//    console.log(`child process close all stdio with code ${code}`);
-    //    send data to browser
-    //res.send(dataToSend);
-//});
-
-//})
 
 app.get("/index/:id/comments/new", isLoggedIn, function (req, res){
     Index.findById(req.params.id, function(err,index){
@@ -348,12 +330,5 @@ app.get("/index/:id/comments/:comment_id/edit",checkCommentOwnership, function(r
  });
 
 
-// app.listen(3000, function(){
-//    console.log("Server has started!!!");
-// });
-
-// app.listen(process.env.PORT, process.env.IP, function(){
-//     console.log("Mhrd Server Has Started!");
-//  });
-
+ 
 app.listen(process.env.PORT || 3000);
